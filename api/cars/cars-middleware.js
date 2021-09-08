@@ -17,15 +17,42 @@ const checkCarId = async (req, res, next) => {
 }
 
 const checkCarPayload = (req, res, next) => {
-  // DO YOUR MAGIC
+  const { vin, make, model, mileage } = req.body
+  try {
+    if (!vin) {
+      next({ status: 400, message: 'vin is missing'})
+    }
+    else if (!make) {
+      next({ status: 400, message: 'make is missing'})
+    }
+    else if (!model) {
+      next({ status: 400, message: 'model is missing'})
+    }
+    else if (!mileage) {
+      next({ status: 400, message: 'mileage is missing'})
+    }
+  } 
+  catch (error) {
+    next(error)
+  }
 }
 
 const checkVinNumberValid = (req, res, next) => {
-  // DO YOUR MAGIC
+  try {
+
+  } 
+  catch (error) {
+    next(error)
+  }
 }
 
 const checkVinNumberUnique = (req, res, next) => {
-  // DO YOUR MAGIC
+  try {
+
+  } 
+  catch (error) {
+    next(error)
+  }
 }
 
 module.exports = { checkCarId, checkCarPayload, checkVinNumberValid, checkVinNumberUnique }
